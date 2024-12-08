@@ -1,7 +1,6 @@
 import React from "react";
 import { Button } from "./ui/button";
 import { FaInstagram, FaLinkedin, FaPinterest, FaSkype } from "react-icons/fa";
-import { BiLogoFacebook } from "react-icons/bi";
 import { IoLogoFacebook } from "react-icons/io";
 
 const Footer = () => {
@@ -56,7 +55,7 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-3">
             <h2 className="text-base text-white">Our Company</h2>
-            {CategoriesData.map((item, i) => {
+            {ourCompanyData.map((item, i) => {
               return (
                 <ul key={i}>
                   <li className="text-white text-sm cursor-pointer">{item}</li>
