@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Link from "next/link";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+
+<div>
+  <Link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet"></Link>
+</div>;
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -8,7 +15,7 @@ const geistSans = localFont({
   weight: "100 900",
 });
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
+  src: "./fonts/ClashDisplay-Regular.otf",
   variable: "--font-geist-mono",
   weight: "100 900",
 });
@@ -28,7 +35,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Navbar/>
         {children}
+        <Footer/>
       </body>
     </html>
   );
