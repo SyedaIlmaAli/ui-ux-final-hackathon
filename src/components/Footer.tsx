@@ -30,7 +30,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className="bg-myDarkBlue">
+    <div className="bg-myDarkBlue ">
       <div className=" border-b-2 border-white">
         <div className="grid grid-cols-2 py-8 px-6 md:grid-cols-3 lg:grid-cols-4">
           <div className="flex flex-col gap-3 ">
@@ -63,21 +63,25 @@ const Footer = () => {
               );
             })}
           </div>
+          <div className="mt-4">
           <p className="text-white text-base">Join our mailing list</p>
           <div className="flex">
             <input
               type="email"
               placeholder="your@email.com"
-              className="md:w-[627px] my-5 bg-white/15 w-[227px] h-[56px]"
+              className="md:w-[627px] my-5 bg-white/15 w-[127px] h-[40px] md:h-[56px]"
             />
-            <Button className="bg-white text-myDarkBlue hover:text-white rounded-none my-5 px-8 h-[56px] ">
+            <Button className="bg-white w-[40px] text-myDarkBlue hover:text-white rounded-none my-5 px-8 h-[40px] md:h-[56px] ">
               Sign up
             </Button>
-\        </div>
+       </div>
+        </div>
         </div>
       </div>
       <div className="flex justify-between px-7 py-8">
-        <p className="text-white text-sm">Copyright 2022 Avion LTD</p>
+        <p className="text-white text-center text-sm">Copyright 2022 Avion LTD</p>
+        <div className="hidden md:block">
+
         <ul className="flex gap-3">
             <li><FaLinkedin className="text-white w-6 h-6"/></li>
             <li><IoLogoFacebook className="text-white  w-6 h-6"/></li>
@@ -85,6 +89,7 @@ const Footer = () => {
             <li><FaSkype className="text-white  w-6 h-6"/></li>
             <li><FaPinterest className="text-white  w-6 h-6"/></li>
         </ul>
+        </div>
       </div>
     </div>
   );

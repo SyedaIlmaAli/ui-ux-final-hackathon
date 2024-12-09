@@ -9,7 +9,7 @@ const ProductCard = ({src, alt, title, price}: ProductCard) => {
   return (
     <div className='flex flex-col gap-2'>
       <div>
-        <Image src={src} alt={alt} height={375} width={305} className='h-[375px] w-[305px]'/>
+        <Image src={src} alt={alt} height={375} width={305} className='md:h-[375px] h-[201px] w-[163px] md:w-[305px]'/>
       </div>
       <div>
         <h6 className=' text-[13.72px]'>{title}</h6>

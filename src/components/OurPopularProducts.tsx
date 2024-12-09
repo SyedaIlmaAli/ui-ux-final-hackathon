@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import ProductCard from './ProductCard'
+import { Button } from './ui/button'
 
 const OurPopularProducts = () => {
   return (
@@ -28,6 +29,9 @@ const OurPopularProducts = () => {
     title='The Dandy chair'
     price={250}
     />
+      </div>
+    <div className="flex items-center justify-center">
+      <Button variant="secondary" className="bg-[#F9F9F9] ">View Collection</Button>
       </div>
       </div>
       </div>
