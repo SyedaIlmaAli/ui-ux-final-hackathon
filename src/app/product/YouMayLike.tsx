@@ -1,9 +1,9 @@
 import React from "react";
-import ProductCard from "./ProductCard";
-import { Button } from "./ui/button";
+import ProductCard from "@/components/ProductCard";
+import { Button } from "@/components/ui/button";
 
-const NewCeramics = () => {
-  const NewCeramicsData = [
+const YouMayLike = () => {
+  const YouMayLikeData = [
     {
       src: "/ui-chair.png",
       alt: "Chair",
@@ -32,10 +32,10 @@ const NewCeramics = () => {
   return (
     <div className="mx-8 my-8">
     <div className="flex flex-col gap-20">
-      <h2 className="text-[20px] text-myDarkBlue md:text-[32px] ml-8 mt-20 -mb-10">New Ceramics</h2>
+      <h2 className="text-[20px] text-myDarkBlue md:text-[32px] ml-8 mt-20 -mb-10">You may also like</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 items-center justify-around mx-4">
         {
-            NewCeramicsData.map((item) => {
+            YouMayLikeData.map((item) => {
                 return(
                     <ProductCard
                     src={item.src}
@@ -56,4 +56,4 @@ const NewCeramics = () => {
   );
 };
 
-export default NewCeramics;
+export default YouMayLike;

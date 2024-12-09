@@ -7,8 +7,9 @@ const OurPopularProducts = () => {
     <div className="mx-8 my-8">
     <div className="flex flex-col gap-20">
       <h2 className="text-[20px] md:text-[32px] ml-8 mt-20 -mb-10">Our popular products</h2>
-      <div className='flex flex-col md:flex-row gap-5 mx-8'>
-      <div className='flex flex-col gap-2 '>
+      <div className='grid grid-cols-2 md:grid-cols-4 gap-5 mx-8'>
+        <div className='hidden md:block'>
+      <div className='flex flex-col gap-2'>
       <div>
         <Image src={"/Large.png"} alt="Sofa" height={375} width={630} className='h-[375px] w-[630px] '/>
       </div> 
@@ -17,6 +18,7 @@ const OurPopularProducts = () => {
         <p className='text-[12.35px]'>£980</p>
       </div>
     </div> 
+    </div>
     <ProductCard
     src='/ui-chair.png'
     alt='chair'

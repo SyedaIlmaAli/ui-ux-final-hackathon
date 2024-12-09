@@ -33,7 +33,7 @@ const DifferentBrand = () => {
     },
   ];
   return (
-    <div className="flex flex-col gap-20 my-8">
+    <div className="flex flex-col gap-6 my-8">
       <h2 className="text-[20px] md:text-[24px] text-center text-myDarkBlue">What makes our brand different</h2>
     <div className="flex flex-col md:flex-row text-myDarkBlue items-center justify-around mx-5">
       {DifferentBrandData.map((item) => {
