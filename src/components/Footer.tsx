@@ -38,7 +38,7 @@ const Footer = () => {
             {Menudata.map((item, i) => {
               return (
                 <ul key={i}>
-                  <li className="text-white text-sm cursor-pointer">{item}</li>
+                  <li className="text-white hover:underline text-sm cursor-pointer">{item}</li>
                 </ul>
               );
             })}
@@ -48,7 +48,7 @@ const Footer = () => {
             {CategoriesData.map((item, i) => {
               return (
                 <ul key={i}>
-                  <li className="text-white text-sm cursor-pointer">{item}</li>
+                  <li className="text-white hover:underline text-sm cursor-pointer">{item}</li>
                 </ul>
               );
             })}
@@ -58,7 +58,7 @@ const Footer = () => {
             {ourCompanyData.map((item, i) => {
               return (
                 <ul key={i}>
-                  <li className="text-white text-sm cursor-pointer">{item}</li>
+                  <li className="text-white hover:underline text-sm cursor-pointer">{item}</li>
                 </ul>
               );
             })}
@@ -83,11 +83,11 @@ const Footer = () => {
         <div className="hidden md:block">
 
         <ul className="flex gap-3">
-            <li><FaLinkedin className="text-white w-6 h-6"/></li>
-            <li><IoLogoFacebook className="text-white  w-6 h-6"/></li>
-            <li><FaInstagram className="text-white  w-6 h-6"/></li>
-            <li><FaSkype className="text-white  w-6 h-6"/></li>
-            <li><FaPinterest className="text-white  w-6 h-6"/></li>
+            <li><FaLinkedin className="text-white w-6 h-6 hover:cursor-pointer hover:text-blue-500 duration-300"/></li>
+            <li><IoLogoFacebook className="text-white  w-6 h-6 hover:cursor-pointer hover:text-blue-500"/></li>
+            <li><FaInstagram className="text-white  w-6 h-6 hover:cursor-pointer hover:text-pink-500 duration-300"/></li>
+            <li><FaSkype className="text-white  w-6 h-6 hover:cursor-pointer hover:text-blue-500 duration-300"/></li>
+            <li><FaPinterest className="text-white  w-6 h-6 hover:cursor-pointer hover:text-red-500 duration-300"/></li>
         </ul>
         </div>
       </div>

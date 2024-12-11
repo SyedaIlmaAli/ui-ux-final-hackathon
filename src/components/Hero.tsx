@@ -9,7 +9,7 @@ const Hero = () => {
     <div className="bg-myDarkBlue my-10 max-w-screen flex gap-20 text-white">
       <div className="space-y-3 py-40 px-10">
         <h5 className="text-[32px] max-w-[513px]">The furniture brand for the future, with timeless designs</h5>
-        <Button variant="secondary" className="bg-[#F9F9F926] text-white">View Collection</Button>
+        <Button variant="secondary" className="bg-[#F9F9F926] hover:text-black text-white">View Collection</Button>
         <div className="pt-24">
         <p className="w-[602px] text-[18px]">
           A new era in eco friendly furniture with Avelon, the French luxury
