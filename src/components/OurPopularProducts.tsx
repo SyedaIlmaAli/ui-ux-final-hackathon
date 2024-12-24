@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ProductCard from "./ProductCard";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 const OurPopularProducts = () => {
   return (
@@ -11,6 +12,7 @@ const OurPopularProducts = () => {
         </h2>
         <div className="flex flex-col md:flex-row gap-3 mx-8">
           <div className="hidden md:block">
+            <Link href={`post/1`}>
             <div className="flex flex-col gap-2 cursor-pointer hover:scale-105">
               <div>
                 <Image
@@ -19,22 +21,25 @@ const OurPopularProducts = () => {
                   height={375}
                   width={630}
                   className="h-[375px] w-[630px] hover:rounded-lg"
-                />
+                  />
               </div>
               <div>
                 <h6 className=" text-[13.72px]">The Poplar suede sofa</h6>
                 <p className="text-[12.35px]">£980</p>
               </div>
             </div>
+                  </Link>
           </div>
           <div className="grid grid-cols-2 gap-3">
             <ProductCard
+            id="1"
               src="/ui-chair.png"
               alt="chair"
               title="The Dandy chair"
               price={250}
             />
             <ProductCard
+            id="1"
               src="/Chair2.png"
               alt="chair"
               title="The Dandy chair"

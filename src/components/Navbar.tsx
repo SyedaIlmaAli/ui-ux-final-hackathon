@@ -139,7 +139,7 @@ const Navbar = () => {
             <Link href={"/productListing"}><li className="cursor-pointer hover:underline">Crockery</li></Link>
             <Link href={"/productListing"}><li className="cursor-pointer hover:underline">Tableware</li></Link>
             <Link href={"/productListing"}><li className="cursor-pointer hover:underline">Cutlery</li></Link>
-            <div className="flex gap-4 mt-4">
+            <div className="flex gap-4 mt-4dev">
             <Link href={"/cart"}>
             <svg
               width="16"
