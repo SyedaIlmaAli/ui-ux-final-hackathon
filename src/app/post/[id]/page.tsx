@@ -26,8 +26,11 @@ const ProductData = [
 ];
 
 const Product = ({ params }: { params: { id: string } }) => {
+  const [count, setCount] = useState(1); // Move this to the top
+  
   const { id } = params;
   const post = ProductData.find((p) => p.id === id);
+
   if (!post) {
     return (
       <h2 className="font-extrabold text-4xl text-center text-customPurple my-12">
@@ -35,8 +38,6 @@ const Product = ({ params }: { params: { id: string } }) => {
       </h2>
     );
   }
-
-  const [count, setCount] = useState(1);
 
   const addCount = () => {
     setCount(count + 1); // Update the state
