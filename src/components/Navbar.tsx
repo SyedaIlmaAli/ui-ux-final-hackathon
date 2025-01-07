@@ -64,6 +64,7 @@ const Navbar = () => {
                 />
             </svg>
                 </Link>
+                <Link href={"/about"}>
             <svg
               width="16"
               height="16"
@@ -86,6 +87,7 @@ const Navbar = () => {
                 fill="#2A254B"
               />
             </svg>
+            </Link>
           </div>
         </div>
         <div>
