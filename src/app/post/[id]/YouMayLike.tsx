@@ -1,62 +1,48 @@
-import React from "react";
-import ProductCard from "@/components/ProductCard";
-import { Button } from "@/components/ui/button";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { client } from "@/sanity/lib/client"; 
+import ProductListingPage from "@/app/pages/[slug]/NewCeramicsComponent";
+import { Product } from "./page";
 
 const YouMayLike = () => {
-  const YouMayLikeData = [
-    {
-      id: "1",
-      src: "/ui-chair.png",
-      alt: "Chair",
-      title: "The Dandy chair",
-      price: 250,
-    },
-    {
-      id: "1",
-      src: "/Photo.png",
-      alt: "Chair",
-      title: "Rustic Vase Set",
-      price: 155,
-    },
-    {
-      id: "1",
-      src: "/bottle.jpg",
-      alt: "Chair",
-      title: "The Silky Vase",
-      price: 125,
-    },
-    {
-      id: "1",
-      src: "/ui-lamp.png",
-      alt: "Lamp",
-      title: "The Lucy Lamp",
-      price: 399,
-    }
-  ];
-  return (
-    <div className="mx-8 my-8">
-    <div className="flex flex-col gap-20">
-      <h2 className="text-[20px] text-myDarkBlue md:text-[32px] ml-8 mt-20 -mb-10">You may also like</h2>
-      <div className="grid grid-cols-2 md:grid-cols-4 items-center justify-around mx-4">
-        {
-            YouMayLikeData.map((item) => {
-                return(
-                    <ProductCard
-                    id={item.id}
-                    src={item.src}
-                    alt={item.alt}
-                    title={item.title}
-                    price={item.price}
-                    key={item.src}
-                    />
-                )
-            })
+  const [products, setProducts] = useState<Product[]>([]); // State to store fetched products
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      // Sanity query to fetch only 4 products
+      const query = `*[_type == "product"][0..3]{
+        _id,
+        title,
+        price,
+        slug,
+        image {
+          asset -> {
+            url
+          }
         }
+      }`;
+
+      try {
+        const data = await client.fetch(query);
+        setProducts(data);
+        console.log(products) // Set fetched data into state
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  return (
+    <div className="mx-8 ">
+      <div className="flex flex-col gap-20">
+        
+        <div className=" items-center justify-around ">
+          <ProductListingPage text="You may also like"/>
+        </div>
       </div>
-      <div className="flex items-center justify-center">
-      <Button variant="secondary" className="bg-[#F9F9F9] ">View Collection</Button>
-      </div>
-    </div>
     </div>
   );
 };
