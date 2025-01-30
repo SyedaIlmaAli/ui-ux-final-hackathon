@@ -3,16 +3,18 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const CheckoutPage = () => {
   const [cartProducts, setCartProducts] = useState<{
     id: string;
-    name: string;
+    title: string;
     description: string;
     price: number;
     quantity: number;
     image: string;
-  }[] | null>(null);
+    src: string
+  }[] >([]);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -72,39 +74,53 @@ const CheckoutPage = () => {
     setPaymentMethod(method);
   };
 
-  const handlePlaceOrder = () => {
-    if (Object.values(formData).some((field) => !field.trim())) {
-      alert("Please fill in all the fields.");
-      return;
-    }
-
-    if (paymentMethod === "card") {
-      if (
-        !cardDetails.cardNumber ||
-        !cardDetails.cvv ||
-        !cardDetails.expiryDate
-      ) {
-        alert("Please fill in your card details.");
-        return;
-      }
-    }
-
-    // Store order details in localStorage
+  const handlePlaceOrder = async () => {
     const orderDetails = {
-      ...formData,
-      cartProducts,
-      subTotal,
-      appliedDiscount,
-      total,
+      fullName: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+      address: formData.address,
+      city: formData.city,
+      postalCode: formData.postalCode,
+      country: formData.country,
       paymentMethod,
+      cartProducts: cartProducts.map((product) => ({
+        _key: product.id, // Ensure each product has a unique key
+        name: product.title, // Mapping title to name
+        description: product.description,
+        price: product.price,
+        quantity: product.quantity,
+        image: product.src, // Mapping src to image
+      })),
+      subTotal,
+      discountApplied: appliedDiscount,
+      total,
+      orderDate: new Date().toISOString(),
     };
-    localStorage.setItem("orderDetails", JSON.stringify(orderDetails));
-
-    // Redirect to the order confirmation page
-    router.push("/order-confirmation");
+  
+    const response = await fetch('/api/place-order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ orderDetails }),
+    });
+  
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data.message);  // Success message from the API
+    } else {
+      console.error('Order failed:', response.statusText);
+    }
   };
+  
+  
+  
+
+
 
   return (
+    <>
     <div className="bg-[#F9F9F9] min-h-screen">
       <div className="container mx-auto px-8 py-10">
         <h1 className="text-[32px] font-bold text-myDarkBlue">Checkout</h1>
@@ -294,8 +310,9 @@ const CheckoutPage = () => {
           )}
         </div>
 
-        {/* Place Order */}
+          <Link href= "/order-confirmation">
         <div className="mt-10 flex justify-end">
+        {/* Place Order */}
           <Button
             className="w-[172px] h-[56px] rounded-none text-white bg-myDarkBlue"
             onClick={handlePlaceOrder}
@@ -304,8 +321,10 @@ const CheckoutPage = () => {
             Place Order
           </Button>
         </div>
+            </Link>
       </div>
     </div>
+    </>
   );
 };
 
